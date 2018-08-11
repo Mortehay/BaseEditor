@@ -41,11 +41,13 @@ Route::get('hotels/{searchName}','HotelsController@searchLike');
 //list single article
 Route::get('hotel/{id}', 'HotelsController@show');
 
+//define min unused hotelid
+Route::get('hotel/id/min', 'HotelsController@idMin');
 //create new article
 Route::post('hotel','HotelsController@store');
 
 //update article
-Route::put('hotel','HotelsController@store');
+Route::put('hotel','HotelsController@edit');
 
 //delete article
 Route::delete('hotel/{id}', 'HotelsController@destroy');

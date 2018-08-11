@@ -3,12 +3,10 @@
         <h2>
             Hotels
         </h2>
-        <div class="d-inline">
-            <h6>search:</h6>
-            <input  class="w-50" type="text" placeholder="searchname" v-model="hotel.searchName" v-on:keyup="searchHotel" v-bind:class="{ danger: hotel.searchName.length < 4 }">
-            <button @click="searchHotelClear()" class="btn btn-secondary">clear</button>
+        <div>
+            <button @click="toggle()" class="btn btn-secondary">Add new hotel form</button>
         </div>
-       <!-- <form @submit.prevent="addHotel" class="mb-3">
+        <form @submit.prevent="addHotel" class="mb-3" v-show="isOpen">
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Title" v-model="hotel.title">
             </div>
@@ -25,8 +23,14 @@
             <div class="form-group">
                 <textarea type="text" class="form-control" placeholder="Body" v-model="hotel.body"></textarea>
             </div>
-            <button type="submit" class="btn btn-light btn-block">Save</button>
-        </form>-->
+            <button type="submit" class="btn btn-secondary">Add new hotel</button>
+        </form>
+        <div class="d-inline">
+            <h6>search:</h6>
+            <input  class="w-50" type="text" placeholder="searchname" v-model="hotel.searchName" v-on:keyup="searchHotel" v-bind:class="{ danger: hotel.searchName.length < 4 }">
+            <button @click="searchHotelClear()" class="btn btn-secondary">clear</button>
+        </div>
+
         <nav aria-label="Page navigation example">
             <ul class="pagination">
                 <li v-bind:class="[{disabled: !pagination.prev_page_url}]" class="page-item">
@@ -40,10 +44,19 @@
         </nav>
         <div class="" v-for="hotel in hotels" v-bind:key="hotel.id">
             <form @submit.prevent="editHotel" class="p-3 border border-primary">
+                <div class="p-2 ">
+                    <div class="d-inline p-2 col-1">
+                        updated at: {{(hotel.created_at.date).replace('.000000','')}}
+                    </div>
+                    <!--<div class="d-inline p-2 col-1">
+                        updated at: {{(hotel.updated_at.date).replace('.000000','')}}
+                    </div>-->
+                </div>
+
                 <div class="d-inline p-2 bg-primary text-white col-1"><input type="text" placeholder="id" name="id" v-model="hotel.id" disabled></div>
                 <div class="d-inline p-2 w-50 bg-primary text-white"><input  class="w-50" type="text" placeholder="name" v-model="hotel.name"></div>
                 <div class="d-inline p-2 bg-primary text-white">
-                    <select >
+                    <select v-model="hotel.region_id">
                         <option v-for="region in regions" v-bind:value="region.id" v-bind:selected="hotel.region_id == region.id">
                            {{ region.name }}
                         </option>
@@ -78,6 +91,7 @@
         name: "hotels-list",
         data() {
             return {
+                isOpen: false,
                 hotels: [],
                 checkedCatalogueType:[],
                 regions:[],
@@ -89,7 +103,9 @@
                     searchName:'',
                     general: '',
                     mice: '',
-                    luxury: ''
+                    luxury: '',
+                    created_at:'',
+                    updated_at:''
                 },
                 hotel_id: '',
                 pagination: {},
@@ -101,6 +117,9 @@
             this.fetchRegions();
         },
         methods:{
+            toggle: function(){
+                this.isOpen = !this.isOpen;
+            },
             fetchHotels(page_url){
                 let vm = this;
                 page_url = page_url || '/api/hotels';
@@ -186,34 +205,45 @@
                             this.fetchHotels();
                         })
                         .catch(err => console.log(err));
-                    /*this.edit = false;
-                    this.hotel = {
-                        id: '',
-                        title: '',
-                        body: ''
-                    };*/
                 }
             },
             editHotel(hotel){
-                /*this.hotel.id = hotel.id;
-                this.hotel.name = hotel.name;
-                this.hotel.name = hotel.name;
-                this.hotel.region_id = hotel.region_id;
-                this.hotel.general = hotel.general;
-                this.hotel.mice = hotel.mice;
-                this.hotel.luxury = hotel.luxury;*/
-                  //region_id: hotel.region_id,
-                  //general: hotel.general,
-                  //mice: hotel.mice,
-                  //luxury: hotel.luxury
+                if (hotel.id !== undefined)  {
 
-
-                if (hotel.id !== undefined)  console.log(this.hotel.id = hotel.id);
-                /*this.edit = true;
-                this.hotel.id = hotel.id;
-                this.hotel.hotel_id = hotel.id;
-                this.hotel.title = hotel.title;
-                this.hotel.body = hotel.body;*/
+                    this.hotel.id = hotel.id;
+                    this.hotel.name = hotel.name;
+                    this.hotel.region_id = hotel.region_id;
+                    this.hotel.mice = hotel.mice;
+                    this.hotel.general = hotel.general;
+                    this.hotel.luxury = hotel.luxury;
+                    console.log(this.hotel);
+                    //update
+                    fetch('api/hotel',{
+                        method: 'put',
+                        body : JSON.stringify(this.hotel),
+                        headers:{
+                            'content-type':'application/json'
+                        }
+                    })
+                        .then(res => res.json())
+                        .then(data =>{
+                            this.edit = false;
+                            this.hotel = {
+                                id: '',
+                                name: '',
+                                region_id: '',
+                                searchName:'',
+                                general: '',
+                                mice: '',
+                                luxury: '',
+                                created_at:'',
+                                updated_at:''
+                            };
+                            alert('hotel updated');
+                            this.fetchHotels();
+                        })
+                        .catch(err => console.log(err));
+                }
 
             },
             searchHotelClear(){

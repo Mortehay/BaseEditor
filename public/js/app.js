@@ -48607,7 +48607,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -48693,11 +48693,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "hotels-list",
     data: function data() {
         return {
+            isOpen: false,
             hotels: [],
             checkedCatalogueType: [],
             regions: [],
@@ -48709,7 +48723,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 searchName: '',
                 general: '',
                 mice: '',
-                luxury: ''
+                luxury: '',
+                created_at: '',
+                updated_at: ''
             },
             hotel_id: '',
             pagination: {},
@@ -48722,6 +48738,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     methods: {
+        toggle: function toggle() {
+            this.isOpen = !this.isOpen;
+        },
         fetchHotels: function fetchHotels(page_url) {
             var _this = this;
 
@@ -48820,41 +48839,55 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 }).catch(function (err) {
                     return console.log(err);
                 });
-                /*this.edit = false;
-                this.hotel = {
-                    id: '',
-                    title: '',
-                    body: ''
-                };*/
             }
         },
         editHotel: function editHotel(hotel) {
-            /*this.hotel.id = hotel.id;
-            this.hotel.name = hotel.name;
-            this.hotel.name = hotel.name;
-            this.hotel.region_id = hotel.region_id;
-            this.hotel.general = hotel.general;
-            this.hotel.mice = hotel.mice;
-            this.hotel.luxury = hotel.luxury;*/
-            //region_id: hotel.region_id,
-            //general: hotel.general,
-            //mice: hotel.mice,
-            //luxury: hotel.luxury
+            var _this5 = this;
 
+            if (hotel.id !== undefined) {
 
-            if (hotel.id !== undefined) console.log(this.hotel.id = hotel.id);
-            /*this.edit = true;
-            this.hotel.id = hotel.id;
-            this.hotel.hotel_id = hotel.id;
-            this.hotel.title = hotel.title;
-            this.hotel.body = hotel.body;*/
+                this.hotel.id = hotel.id;
+                this.hotel.name = hotel.name;
+                this.hotel.region_id = hotel.region_id;
+                this.hotel.mice = hotel.mice;
+                this.hotel.general = hotel.general;
+                this.hotel.luxury = hotel.luxury;
+                console.log(this.hotel);
+                //update
+                fetch('api/hotel', {
+                    method: 'put',
+                    body: JSON.stringify(this.hotel),
+                    headers: {
+                        'content-type': 'application/json'
+                    }
+                }).then(function (res) {
+                    return res.json();
+                }).then(function (data) {
+                    _this5.edit = false;
+                    _this5.hotel = {
+                        id: '',
+                        name: '',
+                        region_id: '',
+                        searchName: '',
+                        general: '',
+                        mice: '',
+                        luxury: '',
+                        created_at: '',
+                        updated_at: ''
+                    };
+                    alert('hotel updated');
+                    _this5.fetchHotels();
+                }).catch(function (err) {
+                    return console.log(err);
+                });
+            }
         },
         searchHotelClear: function searchHotelClear() {
             this.hotel.searchName = '';
             this.fetchHotels();
         },
         searchHotel: function searchHotel(searchName) {
-            var _this5 = this;
+            var _this6 = this;
 
             if (this.hotel.searchName.length >= 2) {
                 console.log('change', this.hotel.searchName);
@@ -48864,7 +48897,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     return res.json();
                 }).then(function (res) {
                     //console.log(res.data);
-                    _this5.hotels = res.data;
+                    _this6.hotels = res.data;
                     vm.makePagination(res.meta, res.links);
                 }).catch(function (err) {
                     return console.log(err);
@@ -48886,6 +48919,227 @@ var render = function() {
     "div",
     [
       _c("h2", [_vm._v("\n        Hotels\n    ")]),
+      _vm._v(" "),
+      _c("div", [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-secondary",
+            on: {
+              click: function($event) {
+                _vm.toggle()
+              }
+            }
+          },
+          [_vm._v("Add new hotel form")]
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.isOpen,
+              expression: "isOpen"
+            }
+          ],
+          staticClass: "mb-3",
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.addHotel($event)
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.hotel.title,
+                  expression: "hotel.title"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "Title" },
+              domProps: { value: _vm.hotel.title },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.hotel, "title", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.checkedCatalogueType,
+                  expression: "checkedCatalogueType"
+                }
+              ],
+              attrs: { type: "checkbox", id: "general", value: "general" },
+              domProps: {
+                checked: Array.isArray(_vm.checkedCatalogueType)
+                  ? _vm._i(_vm.checkedCatalogueType, "general") > -1
+                  : _vm.checkedCatalogueType
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.checkedCatalogueType,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "general",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 && (_vm.checkedCatalogueType = $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        (_vm.checkedCatalogueType = $$a
+                          .slice(0, $$i)
+                          .concat($$a.slice($$i + 1)))
+                    }
+                  } else {
+                    _vm.checkedCatalogueType = $$c
+                  }
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "general" } }, [_vm._v("general")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.checkedCatalogueType,
+                  expression: "checkedCatalogueType"
+                }
+              ],
+              attrs: { type: "checkbox", id: "luxury", value: "luxury" },
+              domProps: {
+                checked: Array.isArray(_vm.checkedCatalogueType)
+                  ? _vm._i(_vm.checkedCatalogueType, "luxury") > -1
+                  : _vm.checkedCatalogueType
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.checkedCatalogueType,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "luxury",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 && (_vm.checkedCatalogueType = $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        (_vm.checkedCatalogueType = $$a
+                          .slice(0, $$i)
+                          .concat($$a.slice($$i + 1)))
+                    }
+                  } else {
+                    _vm.checkedCatalogueType = $$c
+                  }
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "luxury" } }, [_vm._v("luxury")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.checkedCatalogueType,
+                  expression: "checkedCatalogueType"
+                }
+              ],
+              attrs: { type: "checkbox", id: "mice", value: "mice" },
+              domProps: {
+                checked: Array.isArray(_vm.checkedCatalogueType)
+                  ? _vm._i(_vm.checkedCatalogueType, "mice") > -1
+                  : _vm.checkedCatalogueType
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.checkedCatalogueType,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = "mice",
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 && (_vm.checkedCatalogueType = $$a.concat([$$v]))
+                    } else {
+                      $$i > -1 &&
+                        (_vm.checkedCatalogueType = $$a
+                          .slice(0, $$i)
+                          .concat($$a.slice($$i + 1)))
+                    }
+                  } else {
+                    _vm.checkedCatalogueType = $$c
+                  }
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c("label", { attrs: { for: "mice" } }, [_vm._v("mice")]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("span", [
+              _vm._v(
+                "checked Catalogue Type: " + _vm._s(_vm.checkedCatalogueType)
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.hotel.body,
+                  expression: "hotel.body"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "Body" },
+              domProps: { value: _vm.hotel.body },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.hotel, "body", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            { staticClass: "btn btn-secondary", attrs: { type: "submit" } },
+            [_vm._v("Add new hotel")]
+          )
+        ]
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "d-inline" }, [
         _c("h6", [_vm._v("search:")]),
@@ -49007,6 +49261,16 @@ var render = function() {
               }
             },
             [
+              _c("div", { staticClass: "p-2 " }, [
+                _c("div", { staticClass: "d-inline p-2 col-1" }, [
+                  _vm._v(
+                    "\n                    updated at: " +
+                      _vm._s(hotel.created_at.date.replace(".000000", "")) +
+                      "\n                "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
               _c(
                 "div",
                 { staticClass: "d-inline p-2 bg-primary text-white col-1" },
@@ -49070,6 +49334,35 @@ var render = function() {
               _c("div", { staticClass: "d-inline p-2 bg-primary text-white" }, [
                 _c(
                   "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: hotel.region_id,
+                        expression: "hotel.region_id"
+                      }
+                    ],
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          hotel,
+                          "region_id",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
                   _vm._l(_vm.regions, function(region) {
                     return _c(
                       "option",

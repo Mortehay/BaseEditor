@@ -41,7 +41,7 @@ class HotelsController extends Controller
     public function store(Request $request)
     {
         //store hotel data
-        $hotel = $request->isMethod('put') ? Hotel::findOrFail($request->hotel_id) : new hotel;
+        $hotel = $request->isMethod('put') ? Hotels::findOrFail($request->hotel_id) : new Hotel;
        /* $hotel->id = $request->input('hotel_id');
         $hotel->title = $request->input('name');
         $hotel->body = $request->input('');*/
@@ -78,9 +78,20 @@ class HotelsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $hotel = $request->isMethod('put') ? Hotels::findOrFail($request->input('id')) : new Hotel;
+        $hotel->id = $request->input('id');
+        $hotel->name = $request->input('name');
+        $hotel->region_id = $request->input('region_id');
+        $hotel->general = $request->input('general');
+        $hotel->mice = $request->input('mice');
+        $hotel->luxury = $request->input('luxury');
+        //print_r($hotel);
+        //$hotel->save();
+        if($hotel->save()){
+            return  new HotelResource($hotel);
+        }
     }
 
     /**
@@ -104,5 +115,18 @@ class HotelsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function idMin()
+    {
+        //returns minimal unused hotel id
+        $tempRange = range(1,20000,1);
+        $usedIds = Hotels::select('id')->orderBy('id')->get()->toArray();
+        $usedIdsArray = [];
+        foreach($usedIds as $ids){
+            array_push($usedIdsArray , $ids['id']);
+        }
+        $unusedIds = array_diff($tempRange, $usedIdsArray);
+        return min($unusedIds);
     }
 }
