@@ -66,4 +66,7 @@ Route::post('region','RegionsController@store');
 Route::put('region','RegionsController@store');
 
 //delete region
-Route::delete('Regions/{id}', 'RegionsController@destroy');
+Route::delete('regions/{id}', 'RegionsController@destroy');
+
+//list content
+Route::get('content/{type}/{year}/{region}/{subregion}', 'ContentsController@index');
