@@ -18,7 +18,25 @@
 
 </head>
 <body>
+@if(isset(Auth::user()->email))
+    <div class="alert alert-danger success-block row">
+        <div class="col-sm-11">
+            <strong>
+                welcome - {{Auth::user()->email}}
+            </strong>
+            <div class="col-sm-1"><a href="{{url('/hotelsheet')}}" class="btn btn-primary"><strong>hotelsheet</strong></a></div>
+        </div>
 
+        <br>
+        <div class="col-sm-1">
+            <a href="{{ url('/login/logout') }}" class="btn btn-info">logout</a>
+        </div>
+    </div>
+@else
+    <script>
+        window.location = '/';
+    </script>
+@endif
 <div id="app">
     <hotels-navbar></hotels-navbar>
     <hotels-search></hotels-search>
@@ -28,6 +46,7 @@
         </hotels-list>
     </div>
 </div>
+
 <script src="{{ asset('js/jquery-3.3.1.slim.min.js') }}"></script>
 <script src="{{ asset('js/popper.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>

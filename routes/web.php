@@ -17,12 +17,14 @@
 
 Route::get('clear-all-cache', 'ClearAllCache@clearAllCache')->name('$cache_log');
 
-Route::get('/', function(){
-    return view('welcome');
-});
+Route::get('/', 'LoginController@index');
+Route::post('/login/checklogin', 'LoginController@checklogin');
+Route::get('/hotelsheet', 'LoginController@successlogin');
+Route::get('/login/logout', 'LoginController@logout');
+
 //Route::redirect('/', '/hotelsheet', 301);
 //Route::get('/hotelsheet','HotelSheet@hotelList')->name('hotelsheet');
 Route::get('/hotels', function(){
     return view('hotels');
 });
-Route::get('/hotelsheet','HotelSheet@hotelList')->name('hotelsheet');
+//Route::get('/hotelsheet','HotelSheet@hotelList')->name('hotelsheet');
