@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
+use App\UserRoles;
 
 class UsersTableSeeder extends Seeder
 {
@@ -10,6 +11,7 @@ class UsersTableSeeder extends Seeder
      *
      * @return void
      */
+
     public function run()
     {
         //
@@ -19,5 +21,13 @@ class UsersTableSeeder extends Seeder
             'password'      =>  Hash::make('123456'),
             'remember_token'=>  str_random(10)
         ]);
+
+        $user_id = User::where('name', 'like', '%'.'John Smith'.'%')->first()->id;
+        //print_r($user_id);
+        UserRoles::create([
+            'u_id'          =>$user_id
+
+        ]);
+
     }
 }

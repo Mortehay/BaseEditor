@@ -28,7 +28,8 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/you-registred';
+    protected $data = [];
 
     /**
      * Create a new controller instance.
@@ -43,7 +44,7 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -58,15 +59,33 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \App\User
      */
     protected function create(array $data)
     {
+        /*mail('y.shpylovyi@ielpe.com','test',\GuzzleHttp\json_encode([
+            'name' => $data['name'],
+            'email' => $data['email'],
+
+        ]));*/
+        mail('y.shpylovyi@ielpe.com', 'test', '<a href ="' . url('/api/adduser/' . $data['email']) . '" target="_blank">add user</a>');
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+
+
+    protected function addUser(string $email)
+    {
+        echo $email;
+
+        User::where('email',$email)->update(['token' => 'active']);
+
+        print_r(User::where('email',  $email)->first()->token);
     }
 }

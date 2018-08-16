@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Regions;
+//use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\Region as RegionResource;
 
 class RegionsController extends Controller
@@ -14,6 +16,14 @@ class RegionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        print_r(Auth::user());
+        /*if(Auth::user() ==''){
+            exit("<script>alert('you are not authorized');</script><script>window.location = '/';</script>");
+        }*/
+    }
+
     public function index()
     {
         // get regions

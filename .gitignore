@@ -6,11 +6,8 @@
 /.idea
 /.vscode
 /.vagrant
-/storage/framework/cache
-/storage/framework/views
-/storage/framework/sessions
-/bootstrap/cache
+Homestead.json
+Homestead.yaml
 npm-debug.log
 yarn-error.log
 .env
-.phpunit.result.cache

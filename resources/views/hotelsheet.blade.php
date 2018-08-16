@@ -23,6 +23,7 @@
     @endif
 @endsection('auth')
 @section('content')
+    {{Auth::user()}}
     <div class="container box">
         @if ($message = Session::get('error'))
             <div class="alert alert-danger alert-block">

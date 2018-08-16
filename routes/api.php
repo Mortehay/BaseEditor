@@ -4,14 +4,19 @@ use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
-| API Routes
+| Api Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register API routes for your application. These
+| Here is where you can register Api routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
+| is assigned the "api" middleware group. Enjoy building your Api!
 |
 */
+Route::post('login', 'UserController@login');
+Route::post('register', 'UserController@register');
+Route::group(['middleware' => 'auth:api'], function(){
+    Route::post('details', 'UserController@details');
+});
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
@@ -70,3 +75,8 @@ Route::delete('regions/{id}', 'RegionsController@destroy');
 
 //list content
 Route::get('content/{type}/{year}/{region}/{subregion}', 'ContentsController@index');
+
+//
+//Route::post('you-registred','RegisterController@sendMail');
+
+Route::get('adduser/{email}', 'Auth\RegisterController@addUser');
