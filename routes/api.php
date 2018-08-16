@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your Api!
 |
 */
-Route::post('login', 'UserController@login');
+//Route::post('login', 'UserController@login');
 Route::post('register', 'UserController@register');
 Route::group(['middleware' => 'auth:api'], function(){
     Route::post('details', 'UserController@details');
@@ -77,6 +77,6 @@ Route::delete('regions/{id}', 'RegionsController@destroy');
 Route::get('content/{type}/{year}/{region}/{subregion}', 'ContentsController@index');
 
 //
-//Route::post('you-registred','RegisterController@sendMail');
+//Route::post('you-registred','RegisterController@addUser');
 
-Route::get('adduser/{email}', 'Auth\RegisterController@addUser');
+Route::get('/adduser/{token}/{email}', 'Auth\RegisterController@addUser');

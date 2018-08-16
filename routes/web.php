@@ -14,7 +14,7 @@
 /*Route::get('/', function () {
     return view('welcome');
 });*/
-
+Auth::routes();
 Route::get('clear-all-cache', 'ClearAllCache@clearAllCache')->name('$cache_log');
 
 Route::get('/', function(){
@@ -31,11 +31,14 @@ Route::get('/', function(){
 
 //Route::get('/hotelsheet','HotelSheet@hotelList')->name('hotelsheet');
 
-Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/hotels', function(){
     return view('hotels');
 });
 Route::get('/hotelsheet', 'LoginController@successlogin');
-Route::get('/you-registred', 'Auth\RegisterController@sendMail');
+Route::get('/you-registred', function(){
+    return view('auth.thanks');
+});
+//Route::post('login/{token}/adduser/{email}', 'Auth\RegisterController@addUser');

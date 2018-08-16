@@ -14,6 +14,8 @@ class EditUsersTableUserToken extends Migration
     public function up()
     {
         Schema::table('users', function($table) {
+            $table->string('active_token',100)->nullable();
+            $table->string('user_token',100)->nullable();
             $table->text('token')->nullable();
             $table->text('api_token')->nullable();
         });
@@ -27,6 +29,8 @@ class EditUsersTableUserToken extends Migration
     public function down()
     {
         Schema::table('users', function($table) {
+            $table->dropColumn('active_token');
+            $table->dropColumn('user_token');
             $table->dropColumn('token');
             $table->dropColumn('api_token');
         });

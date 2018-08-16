@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Http\Request;
 use App\User;
+use App\UserRoles;
+use DB;
+use Schema;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -64,13 +67,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        /*mail('y.shpylovyi@ielpe.com','test',\GuzzleHttp\json_encode([
-            'name' => $data['name'],
-            'email' => $data['email'],
-
-        ]));*/
-        mail('y.shpylovyi@ielpe.com', 'test', '<a href ="' . url('/api/adduser/' . $data['email']) . '" target="_blank">add user</a>');
-
+        if(Schema::hasTable('user_roles') && Schema::hasTable('users')){
+            $admin_tokens = DB::table('user_roles')
+                ->join('users','user_roles.u_id', '=', 'users.id')
+                ->select('users.user_token','users.email')
+                ->where('user_roles.role',  'admin')
+                ->get();
+        }
+        foreach($admin_tokens as $token){
+            mail($token->email, 'add access new user', 'click on url to enable new user with email - '.$data['email'].'  '. url('/api/adduser/'.$token->user_token.'/'. $data['email']) . '');
+        }
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -80,12 +86,16 @@ class RegisterController extends Controller
 
 
 
-    protected function addUser(string $email)
+    protected function addUser($token, $email)
     {
-        echo $email;
+        if(Schema::hasTable('user_roles') && Schema::hasTable('users') && User::where('user_token',$token)->first() !== null ){
+            User::where('email',$email)->update(['active_token' => 'active', 'user_token'=>str_random(60)]);
+            $user_id = User::where('email', $email)->first()->id;
+            UserRoles::create([
+                'u_id'=>$user_id,
+            ]);
+        }
+        return view('auth.thanks');
 
-        User::where('email',$email)->update(['token' => 'active']);
-
-        print_r(User::where('email',  $email)->first()->token);
     }
 }
