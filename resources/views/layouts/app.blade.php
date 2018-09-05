@@ -8,42 +8,47 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/css.css') }}" >
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
+
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                    @if (isset(Auth::user()->email))
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="alert alert-success row" role="alert">
+                            <div class="col-sm-3 m-1"><a href="{{url('/')}}" class="btn btn-primary"><strong>home</strong></a></div>
+                            <div class="col-sm-3 m-1"><a href="{{url('/hotels')}}" class="btn btn-primary"><strong>hotels</strong></a></div>
+                            <div class="col-sm-3 m-1"><a href="{{url('/hotelsheet')}}" class="btn btn-primary"><strong>hotelsheet</strong></a></div>
+                        </li>
                     </ul>
-
+                    @endif
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
+                            {{--<li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
+                            </li>--}}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
@@ -71,9 +76,14 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4" style="margin-top:100px;">
             @yield('content')
         </main>
     </div>
+    @yield('bottom-scripts')
+
+    {{--<script src="{{ asset('js/jquery-3.3.1.slim.min.js') }}"></script>--}}
+    {{--<script src="{{ asset('js/popper.min.js') }}"></script>--}}
+    {{--<script src="{{ asset('js/bootstrap.min.js') }}"></script>--}}
 </body>
 </html>

@@ -5581,7 +5581,7 @@ for ( i in { submit: true, reset: true } ) {
 	Expr.pseudos[ i ] = createButtonPseudo( i );
 }
 
-// Easy Api for creating new setFilters
+// Easy API for creating new setFilters
 function setFilters() {}
 setFilters.prototype = Expr.filters = Expr.pseudos;
 Expr.setFilters = new setFilters();
@@ -7617,7 +7617,7 @@ var dataUser = new Data();
 
 //	Implementation Summary
 //
-//	1. Enforce Api surface and semantic compatibility with 1.9.x branch
+//	1. Enforce API surface and semantic compatibility with 1.9.x branch
 //	2. Improve the module's maintainability by reducing the storage
 //		paths to a single mechanism.
 //	3. Use the same single mechanism to support "private" and "user" data.
@@ -14287,8 +14287,7 @@ module.exports = Cancel;
 
 __webpack_require__(15);
 __webpack_require__(68);
-__webpack_require__(69);
-module.exports = __webpack_require__(70);
+module.exports = __webpack_require__(69);
 
 
 /***/ }),
@@ -35598,7 +35597,7 @@ function Axios(instanceConfig) {
  */
 Axios.prototype.request = function request(config) {
   /*eslint no-param-reassign:0*/
-  // Allow for axios('example/url'[, config]) a la fetch Api
+  // Allow for axios('example/url'[, config]) a la fetch API
   if (typeof config === 'string') {
     config = utils.merge({
       url: arguments[0]
@@ -41409,7 +41408,7 @@ function initGlobalAPI (Vue) {
   Object.defineProperty(Vue, 'config', configDef);
 
   // exposed util methods.
-  // NOTE: these are not considered part of the public Api - avoid relying on
+  // NOTE: these are not considered part of the public API - avoid relying on
   // them unless you are aware of the risk.
   Vue.util = {
     warn: warn,
@@ -49582,12 +49581,6 @@ if (false) {
 
 /***/ }),
 /* 69 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 70 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

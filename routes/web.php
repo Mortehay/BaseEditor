@@ -34,10 +34,9 @@ Route::get('/', function(){
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/hotels', function(){
-    return view('hotels');
-});
-Route::get('/hotelsheet', 'LoginController@successlogin');
+
+Route::get('/hotels', 'HotelsController@hotels');
+Route::get('/hotelsheet','HotelSheet@hotelList');
 Route::get('/you-registred', function(){
     return view('auth.thanks');
 });

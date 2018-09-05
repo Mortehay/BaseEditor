@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use DB;
+use Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Hotels;
@@ -14,6 +15,17 @@ class HotelsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth')->only('hotels');
+    }
+
+    public function hotels()
+    {
+        return view('pages.hotels');
+    }
+
     public function index()
     {
         // get hotels
