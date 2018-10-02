@@ -18,7 +18,8 @@ class HotelsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->only('hotels');
+        //$this->middleware('auth')->only('hotels');
+        $this->middleware('auth',['only' => ['hotels', 'hotelsheet']]);
     }
 
     public function hotels()

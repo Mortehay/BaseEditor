@@ -41,3 +41,4 @@ Route::get('/you-registred', function(){
     return view('auth.thanks');
 });
 //Route::post('login/{token}/adduser/{email}', 'Auth\RegisterController@addUser');
+Route::get('/display-curve', 'DisplayCurveController@index');

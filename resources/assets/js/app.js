@@ -20,6 +20,7 @@ Vue.component('articles', require('./components/Articles.vue'));
 Vue.component('hotels-navbar', require('./components/HotelsNavbar.vue'));
 Vue.component('hotels-search', require('./components/HotelsSearch.vue'));
 Vue.component('hotels-list', require('./components/HotelsList.vue'));
+Vue.component('my-curve', require('./components/DisplayCurve.vue'));
 
 const app = new Vue({
     el: '#app'

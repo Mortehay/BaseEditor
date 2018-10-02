@@ -8,7 +8,7 @@
 
 <script>
     export default {
-        name: "hotels-navbar"
+        name: "hotels-navbar",
     }
 </script>
 
