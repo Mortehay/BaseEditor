@@ -1,5 +1,5 @@
 @extends('wrapper')
-@section('title', 'test page')
+@section('title', 'curves')
 @section('content')
     <div id="app">
         <my-curve></my-curve>

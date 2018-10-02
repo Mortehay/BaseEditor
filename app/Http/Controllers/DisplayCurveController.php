@@ -8,6 +8,6 @@ class DisplayCurveController extends Controller
 {
     public function index()
     {
-        return view('test.test');
+        return view('curves.display');
     }
 }
