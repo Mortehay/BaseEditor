@@ -55,23 +55,15 @@
                 var __this = this;
                 var paperSetup = paper.setup(document.getElementById('myCanvas'));
                 $(function(){
-
+                    var path, decagon;
                     var tool = new Tool();
-                    var path;
 
-                    tool.onMouseDown = function(event) {
-                        path = new Path();
-                        path.strokeColor = 'blue';
-                        path.add(event.point);
-                    }
+                    __this.drawPoligon(paperSetup, tool, decagon);
+                    __this.drowLine(paperSetup, tool, path);
 
-                    tool.onMouseDrag = function(event) {
-                        path.add(event.point);
-                    }
-                    __this.drawPoligon(paperSetup, tool);
                 });
             },
-            drawPoligon: function(paperSetup, tool){
+            drawPoligon: function(paperSetup, tool, decagon){
                 $(function(){
                     var myCanvasSize = {height:400, width:400};
                     paper.install(window);
@@ -88,6 +80,7 @@
                     }
                     tool.onKeyDown = function(event, paper) {
                         if (event.key == 'd' && decagon.position.x < myCanvasSize.width ) {
+                            console.log('x+5');
                             decagon.position.x += 5;
                             return false;
                         }
@@ -104,10 +97,27 @@
                             return false;
                         }
                     }
+
                     return decagon;
 
                 });
-            }
+            },
+            drowLine: function(paperSetup, tool, path){
+
+                tool.onMouseDown = function(event) {
+                    path = new Path();
+                    path.strokeColor = 'blue';
+                    path.add(event.point);
+
+                }
+
+                tool.onMouseDrag = function(event) {
+                    path.add(event.point);
+                }
+
+                return path;
+            },
+
 
         }
     }

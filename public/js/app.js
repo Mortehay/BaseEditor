@@ -71532,7 +71532,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -71600,23 +71600,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var __this = this;
             var paperSetup = paper.setup(document.getElementById('myCanvas'));
             $(function () {
-
+                var path, decagon;
                 var tool = new Tool();
-                var path;
 
-                tool.onMouseDown = function (event) {
-                    path = new Path();
-                    path.strokeColor = 'blue';
-                    path.add(event.point);
-                };
-
-                tool.onMouseDrag = function (event) {
-                    path.add(event.point);
-                };
-                __this.drawPoligon(paperSetup, tool);
+                __this.drawPoligon(paperSetup, tool, decagon);
+                __this.drowLine(paperSetup, tool, path);
             });
         },
-        drawPoligon: function drawPoligon(paperSetup, tool) {
+        drawPoligon: function drawPoligon(paperSetup, tool, decagon) {
             $(function () {
                 var myCanvasSize = { height: 400, width: 400 };
                 paper.install(window);
@@ -71633,6 +71624,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 };
                 tool.onKeyDown = function (event, paper) {
                     if (event.key == 'd' && decagon.position.x < myCanvasSize.width) {
+                        console.log('x+5');
                         decagon.position.x += 5;
                         return false;
                     }
@@ -71649,8 +71641,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         return false;
                     }
                 };
+
                 return decagon;
             });
+        },
+        drowLine: function drowLine(paperSetup, tool, path) {
+
+            tool.onMouseDown = function (event) {
+                path = new Path();
+                path.strokeColor = 'blue';
+                path.add(event.point);
+            };
+
+            tool.onMouseDrag = function (event) {
+                path.add(event.point);
+            };
+
+            return path;
         }
 
     }
