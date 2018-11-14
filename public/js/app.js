@@ -18266,7 +18266,8 @@ Vue.component('articles', __webpack_require__(52));
 Vue.component('hotels-navbar', __webpack_require__(57));
 Vue.component('hotels-search', __webpack_require__(62));
 Vue.component('hotels-list', __webpack_require__(67));
-Vue.component('my-curve', __webpack_require__(72));
+Vue.component('hotelsheet-list', __webpack_require__(85));
+Vue.component('regions-list', __webpack_require__(95));
 
 var app = new Vue({
   el: '#app'
@@ -70481,7 +70482,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -70609,6 +70610,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         this.fetchHotels();
         this.fetchRegions();
+        //console.log('regions', this.regions);
     },
 
     methods: {
@@ -70638,7 +70640,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             fetch(page_url).then(function (res) {
                 return res.json();
             }).then(function (res) {
-                ///console.log(res.data);
+                //console.log(res.data);
                 _this2.regions = res.data;
             }).catch(function (err) {
                 return console.log(err);
@@ -71447,25 +71449,48 @@ if (false) {
 }
 
 /***/ }),
-/* 72 */
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 78 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 79 */,
+/* 80 */,
+/* 81 */,
+/* 82 */,
+/* 83 */,
+/* 84 */,
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(73)
+  __webpack_require__(86)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(75)
+var __vue_script__ = __webpack_require__(88)
 /* template */
-var __vue_template__ = __webpack_require__(76)
+var __vue_template__ = __webpack_require__(89)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-d8c876f8"
+var __vue_scopeId__ = "data-v-42098ce0"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -71476,7 +71501,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/DisplayCurve.vue"
+Component.options.__file = "resources/assets/js/components/HotelsheetList.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -71485,9 +71510,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-d8c876f8", Component.options)
+    hotAPI.createRecord("data-v-42098ce0", Component.options)
   } else {
-    hotAPI.reload("data-v-d8c876f8", Component.options)
+    hotAPI.reload("data-v-42098ce0", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -71498,23 +71523,23 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 73 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(74);
+var content = __webpack_require__(87);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("277f45cc", content, false, {});
+var update = __webpack_require__(2)("0471d141", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-d8c876f8\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./DisplayCurve.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-d8c876f8\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./DisplayCurve.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-42098ce0\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./HotelsheetList.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-42098ce0\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./HotelsheetList.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -71524,7 +71549,7 @@ if(false) {
 }
 
 /***/ }),
-/* 74 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -71532,13 +71557,221 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 75 */
+/* 88 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: "hotelsheet-list",
+    data: function data() {
+        return {
+            isOpen: false,
+            hotels: [],
+            checkedCatalogueType: [],
+            regions: [1, 2, 3],
+            selectedRegion: 99,
+            hotel: {
+                id: '',
+                name: '',
+                region_id: '',
+                searchName: '',
+                general: '',
+                mice: '',
+                luxury: '',
+                created_at: '',
+                updated_at: ''
+            },
+            hotel_id: '',
+            pagination: {},
+            edit: false
+        };
+    },
+    created: function created() {
+        /* this.fetchHotels();
+         this.fetchRegions();*/
+        console.log('regions', 'trulalala');
+    }
+});
+
+/***/ }),
+/* 89 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "d-inline p-2 bg-primary text-white" }, [
+    _c(
+      "select",
+      {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.hotel.region_id,
+            expression: "hotel.region_id"
+          }
+        ],
+        on: {
+          change: function($event) {
+            var $$selectedVal = Array.prototype.filter
+              .call($event.target.options, function(o) {
+                return o.selected
+              })
+              .map(function(o) {
+                var val = "_value" in o ? o._value : o.value
+                return val
+              })
+            _vm.$set(
+              _vm.hotel,
+              "region_id",
+              $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+            )
+          }
+        }
+      },
+      _vm._l(_vm.regions, function(region) {
+        return _c(
+          "option",
+          {
+            domProps: {
+              value: region.id,
+              selected: _vm.hotel.region_id == region.id
+            }
+          },
+          [_vm._v("\n            " + _vm._s(region.name) + "\n        ")]
+        )
+      })
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-42098ce0", module.exports)
+  }
+}
+
+/***/ }),
+/* 90 */,
+/* 91 */,
+/* 92 */,
+/* 93 */,
+/* 94 */,
+/* 95 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(96)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(98)
+/* template */
+var __vue_template__ = __webpack_require__(99)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-40d35256"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/RegionsList.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-40d35256", Component.options)
+  } else {
+    hotAPI.reload("data-v-40d35256", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 96 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(97);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("601c8226", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-40d35256\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./RegionsList.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-40d35256\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./RegionsList.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 97 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 98 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -71566,159 +71799,411 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: "test",
+    name: "regions-list",
     data: function data() {
         return {
-            element: [1, 2, 3, 4, 5, 6],
-            displayState: false,
-            drawWindowId: null
+            isOpen: false,
+            hotels: [],
+            checkedCatalogueType: [],
+            regions: [],
+            selectedRegion: 99,
+            hotel: {
+                id: '',
+                name: '',
+                region_id: '',
+                searchName: '',
+                general: '',
+                mice: '',
+                luxury: '',
+                created_at: '',
+                updated_at: ''
+            },
+            hotel_id: '',
+            pagination: {},
+            edit: false
         };
     },
-    mounted: function mounted() {
-        console.log('Component mounted.');
-    },
     created: function created() {
-        console.log(this.displayState);
-        setTimeout(this.toggleCurveWindow, 500);
-        console.log(this.displayState);
+        /* this.fetchHotels();*/
+        this.fetchRegions();
+    },
+    updated: function updated() {
+        console.log('regions', this.regions);
     },
 
     methods: {
-        toggleCurveWindow: function toggleCurveWindow() {
-            this.displayState = true;
-            this.drawWindow();
-        },
-        drawWindoeBorder: function drawWindoeBorder() {
-            $(function () {
-                $('#myCanvas').css({ 'border': '1px solid black', 'margin': '0 auto' });
+        fetchRegions: function fetchRegions(page_url) {
+            var _this = this;
+
+            var vm = this;
+            page_url = page_url || '/api/regions';
+            fetch(page_url).then(function (res) {
+                return res.json();
+            }).then(function (res) {
+                //console.log(res.data);
+                _this.regions = res.data;
+                //console.log('regions',this.regions);
+            }).catch(function (err) {
+                return console.log(err);
             });
-        },
-        drawWindow: function drawWindow() {
-            paper.install(window);
-            var __this = this;
-            var paperSetup = paper.setup(document.getElementById('myCanvas'));
-            $(function () {
-                var path, decagon;
-                var tool = new Tool();
-
-                __this.drawPoligon(paperSetup, tool, decagon);
-                __this.drowLine(paperSetup, tool, path);
-            });
-        },
-        drawPoligon: function drawPoligon(paperSetup, tool, decagon) {
-            $(function () {
-                var myCanvasSize = { height: 400, width: 400 };
-                paper.install(window);
-                paper.setup(document.getElementById('myCanvas'));
-                var decagonPosition = { xPath: 200, yPath: 70 };
-                var decagon = new Path.RegularPolygon(new Point(decagonPosition.xPath, decagonPosition.yPath), 10, 50);
-                decagon.fillColor = '#e9e9ff';
-                decagon.selected = true;
-
-                view.onFrame = function (event) {
-                    // Each frame, rotate the path by 3 degrees:
-                    decagon.rotate(3);paper.view.draw();
-                    decagon.fillColor.hue += 1;
-                };
-                tool.onKeyDown = function (event, paper) {
-                    if (event.key == 'd' && decagon.position.x < myCanvasSize.width) {
-                        console.log('x+5');
-                        decagon.position.x += 5;
-                        return false;
-                    }
-                    if (event.key == 'a' && decagon.position.x > 0) {
-                        decagon.position.x -= 5;
-                        return false;
-                    }
-                    if (event.key == 'w' && decagon.position.y > 0) {
-                        decagon.position.y -= 5;
-                        return false;
-                    }
-                    if (event.key == 's' && decagon.position.y < myCanvasSize.height) {
-                        decagon.position.y += 5;
-                        return false;
-                    }
-                };
-
-                return decagon;
-            });
-        },
-        drowLine: function drowLine(paperSetup, tool, path) {
-
-            tool.onMouseDown = function (event) {
-                path = new Path();
-                path.strokeColor = 'blue';
-                path.add(event.point);
-            };
-
-            tool.onMouseDrag = function (event) {
-                path.add(event.point);
-            };
-
-            return path;
         }
-
     }
+
 });
 
 /***/ }),
-/* 76 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "test-curve" } }, [
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-8" }, [
-        _c("h1", [_vm._v("\n                test page\n            ")]),
-        _vm._v(" "),
-        _vm.displayState
-          ? _c("div", { staticClass: "card card-default curve-window" }, [
-              _c("div", { staticClass: "card-header" }, [
-                _vm._v("Example Component")
-              ]),
+  return _c(
+    "div",
+    [
+      _c("h1", [_vm._v("Regions")]),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._l(_vm.regions, function(region) {
+        return _c("div", { key: region.id }, [
+          _c(
+            "form",
+            {
+              staticClass: "p-3 border border-primary row",
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.editRegion($event)
+                }
+              }
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "d-inline p-2 bg-primary text-white col-1" },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: region.id,
+                        expression: "region.id"
+                      }
+                    ],
+                    attrs: {
+                      type: "text",
+                      placeholder: "id",
+                      name: "id",
+                      disabled: ""
+                    },
+                    domProps: { value: region.id },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(region, "id", $event.target.value)
+                      }
+                    }
+                  })
+                ]
+              ),
               _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _vm._v(
-                  "\n                    I'm an example component.\n                "
-                )
-              ]),
+              _c(
+                "div",
+                { staticClass: "d-inline p-2 bg-primary text-white col-3" },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: region.name,
+                        expression: "region.name"
+                      }
+                    ],
+                    staticClass: "w-100",
+                    attrs: { type: "text", placeholder: "name" },
+                    domProps: { value: region.name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(region, "name", $event.target.value)
+                      }
+                    }
+                  })
+                ]
+              ),
               _vm._v(" "),
-              _c("canvas", {
-                staticStyle: { width: "400px", height: "400px" },
-                attrs: { id: "myCanvas", resize: "" }
-              })
-            ])
-          : _vm._e()
+              _c(
+                "div",
+                { staticClass: "d-inline p-2 bg-primary text-white col-1" },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: region.tom,
+                        expression: "region.tom"
+                      }
+                    ],
+                    staticClass: "w-25",
+                    attrs: { type: "text", placeholder: "name" },
+                    domProps: { value: region.tom },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(region, "tom", $event.target.value)
+                      }
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "d-inline p-2 bg-primary text-white col-1" },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: region.cat_order,
+                        expression: "region.cat_order"
+                      }
+                    ],
+                    staticClass: "w-25",
+                    attrs: { type: "text", placeholder: "name" },
+                    domProps: { value: region.cat_order },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(region, "cat_order", $event.target.value)
+                      }
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "d-inline p-2 bg-primary text-white col-1" },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: region.order_mainland,
+                        expression: "region.order_mainland"
+                      }
+                    ],
+                    staticClass: "w-25",
+                    attrs: { type: "text", placeholder: "name" },
+                    domProps: { value: region.order_mainland },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(region, "order_mainland", $event.target.value)
+                      }
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "d-inline p-2  bg-primary text-white col-1" },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: region.order_islands,
+                        expression: "region.order_islands"
+                      }
+                    ],
+                    staticClass: "w-25",
+                    attrs: { type: "text", placeholder: "name" },
+                    domProps: { value: region.order_islands },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(region, "order_islands", $event.target.value)
+                      }
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "d-inline p-2  bg-primary text-white col-1" },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: region.order_exotic,
+                        expression: "region.order_exotic"
+                      }
+                    ],
+                    staticClass: "w-25",
+                    attrs: { type: "text", placeholder: "name" },
+                    domProps: { value: region.order_exotic },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(region, "order_exotic", $event.target.value)
+                      }
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "d-inline p-2  bg-primary text-white col-1" },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: region.order_mice,
+                        expression: "region.order_mice"
+                      }
+                    ],
+                    staticClass: "w-25",
+                    attrs: { type: "text", placeholder: "name" },
+                    domProps: { value: region.order_mice },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(region, "order_mice", $event.target.value)
+                      }
+                    }
+                  })
+                ]
+              )
+            ]
+          )
+        ])
+      })
+    ],
+    2
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "d-inline p-2 bg-primary text-white col-1" }, [
+        _vm._v("\n            id\n        ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "d-inline p-2 bg-primary text-white col-3" }, [
+        _c("div", { staticClass: "w-100" }, [_vm._v("name")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "d-inline p-2 bg-primary text-white col-1" }, [
+        _c("div", { staticClass: "w-25" }, [_vm._v("tom")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "d-inline p-2 bg-primary text-white col-1" }, [
+        _c("div", { staticClass: "w-25" }, [_vm._v("cat")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "d-inline p-2 bg-primary text-white col-1" }, [
+        _c("div", { staticClass: "w-25" }, [_vm._v("mainland")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "d-inline p-2  bg-primary text-white col-1" }, [
+        _c("div", { staticClass: "w-25" }, [_vm._v("islands")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "d-inline p-2  bg-primary text-white col-1" }, [
+        _c("div", { staticClass: "w-25" }, [_vm._v("exotic")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "d-inline p-2  bg-primary text-white col-1" }, [
+        _c("div", { staticClass: "w-25" }, [_vm._v("mice")])
       ])
     ])
-  ])
-}
-var staticRenderFns = []
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-d8c876f8", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-40d35256", module.exports)
   }
 }
-
-/***/ }),
-/* 77 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 78 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

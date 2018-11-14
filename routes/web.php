@@ -37,6 +37,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/hotels', 'HotelsController@hotels');
 Route::get('/hotelsheet','HotelSheet@hotelList');
+Route::get('/regions', 'RegionsController@regions');
+
 Route::get('/you-registred', function(){
     return view('auth.thanks');
 });

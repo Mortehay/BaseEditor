@@ -36,9 +36,10 @@
                     @if (isset(Auth::user()->email))
                     <ul class="navbar-nav mr-auto">
                         <li class="alert alert-success row" role="alert">
-                            <div class="col-sm-3 m-1"><a href="{{url('/')}}" class="btn btn-primary"><strong>home</strong></a></div>
-                            <div class="col-sm-3 m-1"><a href="{{url('/hotels')}}" class="btn btn-primary"><strong>hotels</strong></a></div>
-                            <div class="col-sm-3 m-1"><a href="{{url('/hotelsheet')}}" class="btn btn-primary"><strong>hotelsheet</strong></a></div>
+                            <div class="col-sm-5 m-1"><a href="{{url('/')}}" class="btn btn-primary"><strong>home</strong></a></div>
+                            <div class="col-sm-5 m-1"><a href="{{url('/hotels')}}" class="btn btn-primary"><strong>hotels</strong></a></div>
+                            <div class="col-sm-5 m-1"><a href="{{url('/hotelsheet')}}" class="btn btn-primary"><strong>hotelsheet</strong></a></div>
+                            <div class="col-sm-5 m-1"><a href="{{url('/regions')}}" class="btn btn-primary"><strong>regions</strong></a></div>
                         </li>
                     </ul>
                     @endif
@@ -46,9 +47,6 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            {{--<li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>--}}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
@@ -82,8 +80,5 @@
     </div>
     @yield('bottom-scripts')
 
-    {{--<script src="{{ asset('js/jquery-3.3.1.slim.min.js') }}"></script>--}}
-    {{--<script src="{{ asset('js/popper.min.js') }}"></script>--}}
-    {{--<script src="{{ asset('js/bootstrap.min.js') }}"></script>--}}
 </body>
 </html>

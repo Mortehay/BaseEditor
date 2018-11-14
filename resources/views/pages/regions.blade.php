@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'hotelsheet')
+@section('title', 'regions')
 
 @section('content')
     {{--{{Auth::user()}}--}}
@@ -11,10 +11,12 @@
             </div>
         @endif
         <h3 align="center"> loged in :) </h3>
-            <div class="container">
-                <hotelsheet-list>
-
-                </hotelsheet-list>
-            </div>
+        <div class="container">
+            <regions-list>
+                {{--@foreach($regions as $region)
+                    <li>{{ $region->name }}</li>
+                @endforeach--}}
+            </regions-list>
+        </div>
     </div>
 @endsection('content')

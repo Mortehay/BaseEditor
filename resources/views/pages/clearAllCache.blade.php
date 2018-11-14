@@ -1,4 +1,4 @@
-@extends('layouts.wrapper')
+@extends('layouts.app')
 @section('title', 'clear-all-cache')
 @section('content')
         <ul>

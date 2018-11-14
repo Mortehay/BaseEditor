@@ -115,6 +115,7 @@
         created() {
             this.fetchHotels();
             this.fetchRegions();
+            //console.log('regions', this.regions);
         },
         methods:{
             toggle: function(){
@@ -138,7 +139,7 @@
                 fetch(page_url)
                     .then(res => res.json())
                     .then(res =>{
-                        ///console.log(res.data);
+                        //console.log(res.data);
                         this.regions = res.data;
                     })
                     .catch(err => console.log(err));
